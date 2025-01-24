@@ -57,7 +57,7 @@ public class Bulletspawner : MonoBehaviour
             else
             {
                 transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 1f);
-                print(transform.eulerAngles.z);
+                
             }
 
 

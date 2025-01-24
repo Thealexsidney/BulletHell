@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FollowMouse : MonoBehaviour
@@ -21,8 +22,11 @@ public class FollowMouse : MonoBehaviour
     void Update()
     {
         FollowMousePosistion(maxSpeed);
+
+        
     }
 
+   
 
     private void FollowMousePosistion(float maxSpeed)
     {
@@ -37,7 +41,7 @@ public class FollowMouse : MonoBehaviour
 
     }
 
-  
+
 
     private Vector2 GetWorldPositionFromMouse()
     {
