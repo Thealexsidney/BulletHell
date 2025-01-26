@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class FollowMouse : MonoBehaviour
 {
     private Camera mainCamera;
-
+    
 
     [SerializeField]
     private float maxSpeed = 10f;
@@ -26,7 +25,7 @@ public class FollowMouse : MonoBehaviour
         
     }
 
-   
+  
 
     private void FollowMousePosistion(float maxSpeed)
     {
@@ -42,7 +41,10 @@ public class FollowMouse : MonoBehaviour
     }
 
 
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Hit" +  other);
+    }
     private Vector2 GetWorldPositionFromMouse()
     {
         return mainCamera.ScreenToWorldPoint(Input.mousePosition);

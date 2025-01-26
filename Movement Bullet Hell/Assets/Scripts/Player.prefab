@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7087740563849788830}
   - component: {fileID: 6297728819875914977}
-  - component: {fileID: 8599839493975959255}
+  - component: {fileID: 7301653947578568623}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
---- !u!60 &8599839493975959255
+--- !u!60 &7301653947578568623
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -175,7 +175,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.6}
-      - {x: 0.5, y: -0.3}
-      - {x: -0.5, y: -0.3}
+    - - {x: 0.48685753, y: -0.28760993}
+      - {x: -0.0093717575, y: 0.5780697}
+      - {x: -0.49169487, y: -0.27091157}
   m_UseDelaunayMesh: 0
