@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FollowMouse : MonoBehaviour
 {
     private Camera mainCamera;
-    
+
+    public int Health;
+    public TextMeshProUGUI healthText;
 
     [SerializeField]
     private float maxSpeed = 10f;
@@ -15,6 +19,7 @@ public class FollowMouse : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        healthText.text = "Health: " + Health;
     }
 
     // Update is called once per frame
@@ -43,7 +48,18 @@ public class FollowMouse : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hit" +  other);
+        Health--;
+
+        Destroy(other.gameObject);
+
+        healthText.text = "Health: " + Health;
+
+        if (Health <= 0) 
+        {
+            SceneManager.LoadScene("GameOver");
+            Health = 3;
+        }
+
     }
     private Vector2 GetWorldPositionFromMouse()
     {
