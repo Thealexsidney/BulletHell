@@ -16,11 +16,11 @@ public class Bulletspawner : MonoBehaviour
     [Header("Spawner Attributes")]
     [SerializeField] private SpawnerType spawnerType;
     [SerializeField] private float firingRate = 1f;
-
+    [SerializeField] private float startDelay = 1f;
 
     private GameObject spawnedBullet;
     private float timer = 0f;
-
+    private float time = 0f;
 
 
 
@@ -34,41 +34,44 @@ public class Bulletspawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (spawnerType == SpawnerType.Spin180Up)
+        time += Time.deltaTime;
+        if (time >= startDelay)
         {
-            if (transform.eulerAngles.z >= 180)
+            if (spawnerType == SpawnerType.Spin180Up)
             {
-                transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                if (transform.eulerAngles.z >= 180)
+                {
+                    transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                }
+                else
+                {
+                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 1f);
+                }
+
+
+
             }
-            else
+            if (spawnerType == SpawnerType.Spin180Down)
             {
-                transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 1f);
+                if (transform.eulerAngles.z < 180)
+                {
+                    transform.eulerAngles = new Vector3(0f, 0f, 180f);
+                }
+                else
+                {
+                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 1f);
+
+                }
+
+
+
             }
-     
-            
-            
+            if (timer >= firingRate)
+            {
+                Fire();
+                timer = 0;
+            }
         }
-        if (spawnerType == SpawnerType.Spin180Down)
-        {
-            if (transform.eulerAngles.z < 180)
-            {
-                transform.eulerAngles = new Vector3(0f, 0f, 180f);
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 1f);
-                
-            }
-
-
-
-        }
-        if (timer >= firingRate)
-        {
-            Fire();
-            timer = 0;
-        }
-
     }
 
     private void Fire()
